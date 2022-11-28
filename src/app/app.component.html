@@ -1,0 +1,49 @@
+
+<!-- Ng Model para Two way binding-->
+
+<input type="text" [(ngModel)]="title">
+
+{{ "Hola bienvenido a:"}}
+
+<!-- String Interpolation -->
+<h1>{{ title }}</h1>
+
+<!-- Render condicional -->
+
+<div *ngIf="title == 'mostrar contenido'">
+  contenido...
+</div>
+
+<!-- Uso de NgSwitch -->
+
+<div [ngSwitch]="title">
+  <p *ngSwitchCase="'caso1'"> Contenido Caso 1</p>
+  <p *ngSwitchCase="'caso2'"> Contenido Caso 2</p>
+  <p *ngSwitchCase="'caso3'"> Contenido Caso 3</p>
+  <p *ngSwitchCase="'caso4'"> Contenido Caso 4</p>
+
+
+</div>
+
+<!-- agregar elementos a un arreglo -->
+
+<button (click)='addItem(title)'> Agregar item</button>
+
+<!-- Recorrer arreglo  -->
+<ul>
+  <li *ngFor="let usuario of usuarios; index as i">
+    {{ i }} {{ usuario }}
+    <button (click)="deleteItem(i)">Borrar elemento</button>
+  </li>
+</ul>
+
+
+<!-- Recorrido de objetos -->
+
+<div *ngFor="let product of products">
+  {{ product.title}}
+  <img [src]="product.image" alt="" width="200px">
+  Precio: {{product.price}}
+</div>
+
+
